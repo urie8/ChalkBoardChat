@@ -1,0 +1,40 @@
+﻿@page
+@model ChalkboardChat.UI.Pages.Message.MessageBoardModel
+@{
+}
+
+
+<div id="messages-container">
+
+	<h1>Message board</h1>
+	@foreach (var message in @Model.Messages)
+	{
+		if(message.User != null)
+		{
+			if (message.User.UserName == Model.loggedInUser.UserName)
+			{
+				<h1>You Said</h1>
+				<h2>@message.Message</h2>
+				<h3>Date: @message.Date</h3>
+			}
+			else
+			{
+				<h1>@message.User.UserName Said</h1>
+				<h2>@message.Message</h2>
+				<h3>Date: @message.Date</h3>
+
+			}
+		}
+		else
+		{
+			<h1>Deleted user:</h1>
+			<h2>@message.Message</h2>
+			<h3>Date: @message.Date</h3>
+		}
+		
+	
+	}
+
+</div>
+}
+

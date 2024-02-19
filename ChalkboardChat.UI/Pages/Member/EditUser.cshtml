@@ -1,0 +1,11 @@
+﻿@page
+@model ChalkboardChat.UI.Pages.Member.EditUserModel
+@{
+}
+
+<h1>Change username</h1>
+
+<form method="post">
+    <input type="text" placeholder="Username" asp-for="@Model.NewUsername"/>
+    <input type="submit" value="Change username" />
+</form>

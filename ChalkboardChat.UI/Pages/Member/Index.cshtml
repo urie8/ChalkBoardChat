@@ -1,0 +1,28 @@
+﻿@page
+@model ChalkboardChat.UI.Pages.Member.IndexModel
+@{
+}
+
+<h1>Member page</h1>
+
+
+@if (Model.IsAdmin)
+{
+    <strong class="text-primary">Congrats for being an Admin!</strong>
+}
+else
+{
+    <form method="post">
+        <input type="submit" value="Make me an Admin!" />
+    </form>
+}
+
+<a asp-page="/Member/EditUser">Change username</a>
+
+
+<h2>Post a message!</h2>
+<form method="post">
+    <input type="text" placeholder="Message" asp-for="Message"/>
+ 
+    <input type="submit" value="Post message" />
+</form>
