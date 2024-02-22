@@ -9,7 +9,7 @@ namespace ChalkboardChat.Data.Database.Models
 		public DateTime Date { get; set; }
 		public string Message { get; set; } = null!;
 		//public string Username { get; set; }
-		public string UserId { get; set; } = null!;
+		public string? UserId { get; set; } 
 		public ApplicationUser? User { get; set; }
 	}
 }

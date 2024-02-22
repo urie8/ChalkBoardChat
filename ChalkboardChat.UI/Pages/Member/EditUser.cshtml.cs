@@ -26,7 +26,7 @@ namespace ChalkboardChat.UI.Pages.Member
             SignedInUser = await _userManager.GetUserAsync(HttpContext.User);
         }
 
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPostChangeUsername()
         {
             SignedInUser = await _userManager.GetUserAsync(HttpContext.User);
 
@@ -46,6 +46,25 @@ namespace ChalkboardChat.UI.Pages.Member
                 return Page();
             }
 
+
+        }
+
+        public async Task<IActionResult> OnPostDelete()
+        {
+            SignedInUser = await _userManager.GetUserAsync(HttpContext.User);
+
+           var removeUser = await _userManager.DeleteAsync(SignedInUser);
+
+            if (removeUser.Succeeded)
+            {
+                return RedirectToPage("/Member/Index");
+
+            }
+
+            else
+            {
+                return Page();
+            }
 
         }
 
